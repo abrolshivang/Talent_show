@@ -1,0 +1,5 @@
+<h1> Winners  </h1>
+<%@vote.each do |w|%>
+<p>Competition: <b><%= Competition.find(w.compt_id).caption%></b></p>
+<p class= 'blinker'>Winner: <%= User.find(w.user_id).name %></p>
+<%end%>

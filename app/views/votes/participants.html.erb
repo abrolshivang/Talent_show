@@ -1,0 +1,9 @@
+<h1>Participants</h1>
+
+<%@vote.each do|v|%>
+<% if v.voteable_type == "Upload"%>
+<p><%=v.voteable.uploaded_by.name%> for Competition <%=v.voteable.competition.caption%></p>
+<%else%>
+<p><%=v.voteable.video_uploaded_by.name%> for Competition <%=v.voteable.competition.caption%></p>
+<%end%>
+<%end%>

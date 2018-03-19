@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <center>
+    <h1>Ⓣalent<sub>Ⓐrena</sub></h1>
+    <p>Ready to shine with your Talent?</p>
+    <h4>Hit signup & onboard with us!</h4>
+    <br/>
+    <br/>
+  </center>
+  <% if @current_user.present? %>
+    <center>
+      <a class="btn btn-primary btn-lg btn-xlarge" href="users/search" role="button">Dashboard</a>
+    </center>
+  <% else %>
+    <center>
+      <a class="btn btn-primary btn-lg btn-xlarge" href="users/new" role="button">Signup</a>
+    </center>
+  <% end %>
+</div class = "thumba">
+<b>Active Events</b>
+ <hr style="border: 1px solid #910828" />
+  
+</div>
+<%= render :partial=> 'competitions/index',locals:{competition: @competition} %>

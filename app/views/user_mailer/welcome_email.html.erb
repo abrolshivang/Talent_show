@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  </head>
+  <body>
+    <h1 align="left">
+      We feel delighted to have you <%="#{@user.name}"%> and now let the magic begin!
+    </h1>
+    <p style="color:green;">
+      <b>You have successfully signed up to your dream destination and we're extremely happy that you chose us to serve you,</b>
+    </p>
+    <p style="color:red;">
+      <b>Your registered email with us is: <%="#{@user.email}"%></b>
+      <br/>
+    </p>
+    <p>
+      To login to the site, just follow this link:
+      <%= link_to @url+'',users_signin_url %>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+    <br/>
+    <br/>
+    <br/>
+    <p>&copy; Team Talent Arena</p>
+  </body>
+</html>

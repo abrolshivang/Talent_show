@@ -1,0 +1,17 @@
+<h4><%="#{@current_user.name.capitalize}"%> ,You're just few steps far from the fame you are craving for!</h4>
+<h6>Upload your picture now and let the magic begin</h6>
+ 
+<%= form_for @upload,url:competition_uploads_path(@competition),method: :post do |f| %>
+  <div>
+    <% f.label :name %><br>
+    <%= f.file_field :name %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div>
+    <%= f.submit 'Upload now' %>
+  </div>
+<% end %>
+ 
+	

@@ -1,0 +1,99 @@
+<body>
+<h1 align="center">Welcome to Talent Arena Entry Gateway</h1>
+<hr/>
+<p><b>Welcome to Talent Arena</b></p>
+<br/>
+<% if @user.errors.any? %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+          </h2>
+          <div class="panel-body">
+            <ul></ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="well col-xs-8 col-xs-offset-2" >
+<div class='row'%>
+<div class='col-xs-12'>
+<%= form_for(@user, :html =>{class: "form-horizontal",role:"form"})  do |f| %>
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= f.label  :name, "Name" %>
+  </div>
+  <div class="col-sm-6">
+  <%= f.text_field  :name ,autofocus:true%>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= f.label  :email, "Email" %>
+  </div>
+  <div class="col-sm-6">
+  <%= f.text_field :email ,placeholder:"Enter email"%><br>
+  <small>We'll never share your email with anyone else.</small>
+  </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+  <%= f.label  :password,"Password" %>
+  </div>
+   <div class="col-sm-6">
+  <%= f.password_field  :password %>
+  </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+  <%= f.label  :password,"Password Confirmation" %>
+  </div>
+  <div class="col-sm-6">
+  <%= f.password_field  :password_confirmation %>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= f.label  :gender, "Gender:" %>
+  </div>
+  <div class="col-sm-offset-0 col-sm-6">
+  <%= f.label  :gender, "Male" %>
+  <%= f.radio_button :gender, "male", :checked => 'true' %>
+  <%= f.label  :gender, "Female:" %>
+  <%= f.radio_button :gender, "female" %>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= f.label :dateofbirth, "DOB" %>
+  </div>
+  <div class="col-sm-6">
+  <%= f.date_select :dateofbirth, { start_year: 100.years.ago.year, end_year: Date.today.year, default: Date.today} %>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="control-label col-sm-2">
+  <%= f.label :telephone, 'Contact No:' %>
+  </div>
+  <div class="col-sm-6">
+  <%= f.text_field :telephone %>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-6">
+  <%= f.submit 'Sign Up' %>
+  </div>
+  </div>
+<% end %>
+</div>
+<%=link_to "Already a user, Click to login",users_signin_path %>
+
+</body>

@@ -1,0 +1,39 @@
+  <div class="form-group">
+  <%= form_for @competition do |f| %>
+  <%= f.label  :caption, "Caption" %>
+  <%= f.text_field  :caption ,autofocus:true%>
+  <br>
+  <br>
+
+  <div class="form-group">
+  <%= f.label  :tagline, "Tagline" %>
+  <%= f.text_field :tagline ,placeholder:"Enter tagline"%>
+  <br/>
+  </div>
+  <div class="form-group">
+  <%= f.label  :button_name,"Button_name" %>
+  <%= f.text_field  :button_name %>
+  </div>
+  <div class="form-group">
+  <%= f.label  :competition_type, "Competition_type:" %>
+  <%= f.label  :competition_type, "Images" %>
+  <%= f.radio_button :competition_type, "images", :checked => 'true' %>
+  <%= f.label  :competition_type, "Videos:" %>
+  <%= f.radio_button :competition_type, "video" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :ending_date, "Ending Date" %>
+  <%= f.date_select :ending_date, { start_year: 100.years.ago.year, end_year: Date.today.year, default: Date.today} %>
+  </div>
+  <div class="form-group">
+  <% f.label :name %><br>
+  <%= f.file_field :name %>
+  </div>
+  <div class="form-group">
+  <%= f.submit 'Create Competition' %>
+  </div>
+  <% end %>
+  </div>
+
+<%=link_to "Back",users_signin_path %>
+

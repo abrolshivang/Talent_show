@@ -1,0 +1,18 @@
+<h3><%= @competition.caption%></h3>
+<p> Hit an entry to caste your vote!</p>
+<% @uploads.each do |upload| %>
+<div class = "row">
+  <div class="col-sm-6 col-md-3">
+  	<div class = "thumbnail">
+  		<%= link_to competition_upload_path(@competition,upload) do %>
+  		<img src="<%= upload.name.medium %>">
+ 		  <%= upload.uploaded_by.name%>
+ 		  <%end%>
+		</div>
+	</div>
+</div>
+<% end %>
+
+ <%# if @current_user %>
+<%# link_to 'New upload', new_competition_upload_path %>
+<%#end %>

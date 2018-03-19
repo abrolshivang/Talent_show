@@ -1,0 +1,20 @@
+<h1 align="center">Admin Control</h1>
+<hr/>
+<%= form_tag users_admin_login_path, method: 'post' do %>
+  <%= label_tag :email ,'Email' %>
+  <br/>
+  <br/>
+  <%= text_field_tag :email, params[:email],placeholder:"Enter email",autofocus: true %>
+  <br/>
+  <br/>
+  <%= label_tag :password , 'Password' %>
+  <br/>
+  <br/>
+  <%= password_field_tag :password %>
+  <br/>
+  <br/>
+  <%= submit_tag "Sign in"  %>
+<% end %>
+<br/>
+<br/>
+

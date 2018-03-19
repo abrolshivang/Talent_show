@@ -1,0 +1,18 @@
+ <div class = "row">
+  <div class="col-sm-6 col-md-4">
+  	<div class = "thumbnail">
+			<img src="<%= @upload.name.medium %>" /><br/>
+			<p align ="center"><b>Uploaded by:</b> <%= @upload.uploaded_by.name%></p>
+			<center>
+				<% if @upload.uploaded_by_id != @current_user.id%>
+					<%= form_tag votes_path(voted_by_id: @current_user.id,voteable_id: @upload.id,competition_id: @competition.id),remote:true,method: :post do%>
+					<%= submit_tag 'Vote'%>
+					<% end %>
+				<% end %>
+			</center>
+				<%if admin or @upload.uploaded_by_id == @current_user.id %>
+					<%= link_to 'Take me out of competition', competition_upload_path,  method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%end%>
+		</div>
+	</div>
+</div>

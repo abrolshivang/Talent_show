@@ -1,0 +1,44 @@
+
+  <div class = "row show">
+  <% @competitions.each do |competition| %>
+    <div class="col-sm-6 col-md-3 project">
+    <div class = "thumbnail">
+        <%= link_to competition_url(competition.id) do %>
+        <img src="<%= competition.name.medium %>">
+      <div class="caption">
+        <h3 align="center"><%= competition.caption %></h3>
+        <p align= "center"><small> -<%=competition.tagline%></small></p>
+        <p align ="center"><small>  Days Hrs Min Sec</small></p>
+        <p align="center">
+        <%=countdown( competition.ending_date.to_time ) %>
+
+        <!-- <script type="text/javascript">
+          var endingDate = new Date("<%=competition.ending_date.to_time%>");
+          var millisecondsLeft = endingDate - new Date();
+          var timer =  setInterval(function(){
+             millisecondsLeft = millisecondsLeft - 1000;
+             days = millisecondsLeft / (1000*60*60*24);
+             hours = millisecondsLeft / (1000*60*60);
+             minutes = millisecondsLeft / (1000*60);
+             seconds = millisecondsLeft / 1000;
+             if(millisecondsLeft > 0){
+                 //console.log(`${days} days left`)
+                 console.log(`${days}days,${hours}hours,${minutes}minutes,${seconds}seconds left`)
+             }
+             else{
+                // console.log(endingDate)
+                // clearInterval(timer)
+             }
+          },1000);
+        </script> -->
+          
+        </p>
+        <%end%>
+     
+        <% if admin%>
+          <%= link_to 'Delete this competition', competition_path(competition.id), method: :delete%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+<%end%>

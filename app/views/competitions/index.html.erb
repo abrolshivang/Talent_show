@@ -1,0 +1,26 @@
+
+<% @competitions.each do |competition| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src=<%=competition.name.medium%>/>
+      <div class="caption">
+        <h3 align="center"><%= competition.caption %></h3>
+        <p align= "center"><small> -<%=competition.tagline%></small></p>
+        <% if competition.competition_type == "images"%>
+        <p align = "center"><%= link_to competition.button_name,new_competition_upload_path(competition.id)%></p>
+        <%elsif competition.competition_type == "video"%>
+         <p align = "center"><%= link_to competition.button_name,new_competition_video_path(competition.id)%></p>
+         <%end%>
+        <p align ="center"><small>  Days Hrs Min Sec</small></p>
+        <p align="center">
+        <%= countdown( competition.ending_date.to_time ) %>
+        </p>
+        <% if admin%>
+          <%= link_to 'End the competition', competition_path(competition.id), method: :delete%>
+          <%end%>
+      </div>
+    </div>
+  </div>
+
+  <%end%>

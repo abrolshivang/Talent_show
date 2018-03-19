@@ -1,0 +1,54 @@
+<div class = "row">
+  <div class="col-sm-6 col-md-4">
+  <div class = "thumbnail">
+  <%= link_to competition_url do %>
+  <img src="<%= @competition.name.medium %>"/>
+  <div class="caption">
+    <h3 align="center"><%= @competition.caption %></h3>
+    <p align= "center"><small> -<%=@competition.tagline%></small></p>
+    <% if @competition.competition_type == "images"%>
+     <center>
+      <div class= "btn">
+        <div class = "btn-success">
+          <%= link_to "#{ @competition.button_name}",new_competition_upload_path(@competition.id)%>
+         
+        </div>
+      </div>
+      <div class= "btn">
+        <div class = "btn-success">
+          <%= link_to "See uploads and vote",competition_uploads_path(@competition.id)%>
+         </div>
+      </div>
+      </center>
+    <%elsif @competition.competition_type == "video"%>
+    <center>
+      <div class= "btn">
+        <div class = "btn-success">
+        
+          <%= link_to "#{ @competition.button_name}",new_competition_video_path(@competition.id)%>
+         
+        </div>
+      </div>
+      <br>
+      <div class= "btn">
+        <div class = "btn-success">
+          <%= link_to "See videos and vote",competition_videos_path(@competition.id)%>
+         </div>
+      </div>
+      </center>
+   
+    <p align ="center"><small>  Days Hrs Min Sec</small></p>
+    <p align="center">
+    <%= countdown( @competition.ending_date.to_time ) %>
+    </p>
+    <%end%>
+    <% if admin%>
+      <%= link_to 'Delete this competition', competition_path(@competition.id), method: :delete%>
+    <%end%>
+    
+</div>
+</div>
+</div>
+<%end%>
+<%# link_to "WINNER",controller:"votes",action:'winner',:id=> @competition.id %>
+

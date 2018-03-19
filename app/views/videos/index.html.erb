@@ -1,0 +1,15 @@
+<h3><%= @competition.caption%></h3>
+<p> Hit an entry to caste your vote!</p>
+
+<% @videos.each do |video| %>
+<div class = "row">
+  <div class="col-sm-6 col-md-3">
+  	<div class = "thumbnail">
+  		<%= link_to competition_video_path(@competition,video) do %>
+   		<video width="220" height="240" controls src="<%= video.video %> "></video>
+   		<%=video.video_uploaded_by.name%>
+   		<%end%>
+		</div>
+	</div>
+</div>
+<%end%>

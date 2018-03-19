@@ -1,0 +1,26 @@
+<h1 align="center">LOGIN </h1>
+<hr/>
+<center>
+<b>Welcome User, please enter the details to onboard with us!</b></center>
+<div class="well col-xs-8 col-xs-offset-2" >
+<div class ="form-signin">
+<%= form_tag users_login_path, method: 'post' do %>
+  <%= label_tag :email ,'Email' %>
+  <br/>
+  <br/>
+  <%= text_field_tag :email, params[:email],placeholder:"Enter email",autofocus: true %>
+  <br/>
+  <br/>
+  <%= label_tag :password , 'Password' %>
+  <br/>
+  <br/>
+  <%= password_field_tag :password %>
+  <br/>
+  <br/>
+  <%= submit_tag "Sign in"  %>
+<% end %>
+</div>
+</div>
+<br/>
+<br/>
+

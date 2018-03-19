@@ -1,0 +1,6 @@
+<b> Active Events </b>
+	<p> Here,is your chance to join this extravaganza </p>
+<%=render 'competitions/index'%>
+<% if admin%>
+<%= link_to 'Create Competition now',new_competition_path%>
+<%end%>
